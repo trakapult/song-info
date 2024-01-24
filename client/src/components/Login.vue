@@ -4,7 +4,7 @@
       <div class="col-md-6">
         <div class="card">
           <div class="card-body">
-            <h2 class="text-center mb-4">Register</h2>
+            <h2 class="text-center mb-4">Login</h2>
             <form>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
@@ -16,7 +16,7 @@
               </div>
               <div class="error" v-html="error"></div>
               <div class="d-grid">
-                <button type="submit" class="btn btn-primary" @click="register">Register</button>
+                <button type="submit" class="btn btn-primary" @click="login">Login</button>
               </div>
             </form>
           </div>
@@ -37,9 +37,9 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
@@ -47,7 +47,6 @@ export default {
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
-        console.log(error)
         this.error = error.response.data.error
       }
     }
