@@ -8,19 +8,19 @@
           </span>
           <div v-for="song in songs" :key="song.title">
             <div class="song row justify-content-center">
-                <div class="col-md-3">
-                  <div class="song-title">{{song.title}}</div>
-                  <div class="song-artist">{{song.artist}}</div>
-                  <div class="song-genre">{{song.genre}}</div>
-                  <router-link :to="{name: 'song', params: {songId: song.id}}"
-                    class="btn btn-primary"
-                    style="margin-top: 0.5em;">
-                    View
-                  </router-link>
-                </div>
-                <div class="col-md-3">
-                  <img class="song-album-image" :src="song.albumImageUrl">
-                </div>
+              <div class="col-md-3">
+                <div class="song-title">{{song.title}}</div>
+                <div class="song-artist">{{song.artist}}</div>
+                <div class="song-genre">{{song.genre}}</div>
+                <router-link :to="{name: 'song', params: {songId: song.id}}"
+                  class="btn btn-primary"
+                  style="margin-top: 0.5em;">
+                  View
+                </router-link>
+              </div>
+              <div class="col-md-3">
+                <img class="song-album-image" :src="song.albumImageUrl">
+              </div>
             </div>
           </div>
         </Panel>
