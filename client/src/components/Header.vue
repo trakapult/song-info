@@ -13,8 +13,27 @@
           <li class="nav-item" v-if="!$store.state.isUserLoggedIn">
             <a class="nav-link" href="/#/register">Register</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/#/songs">Songs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" v-if="$store.state.isUserLoggedIn" @click="logout">Logout</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  methods: {
+    logout () {
+      console.log('logout')
+      this.$store.dispatch('setUser', null)
+      this.$store.dispatch('setToken', null)
+      this.$router.push({name: '/'})
+    }
+  }
+}
+</script>

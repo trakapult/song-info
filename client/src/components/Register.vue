@@ -2,25 +2,20 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="text-center mb-4">Register</h2>
-            <form>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input id="email" v-model="email" class="form-control" required>
-              </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input id="password" type="password" v-model="password" class="form-control" required>
-              </div>
-              <div class="error" v-html="error"></div>
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary" @click="register">Register</button>
-              </div>
-            </form>
+        <Panel title="Register">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" v-model="email" class="form-control" required>
           </div>
-        </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input id="password" type="password" v-model="password" class="form-control" required>
+          </div>
+          <div class="error" v-html="error"></div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary" @click="login">Register</button>
+          </div>
+        </Panel>
       </div>
     </div>
   </div>
@@ -28,11 +23,13 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel.vue'
+
 export default {
   data () {
     return {
-      email: 'abc',
-      password: '123',
+      email: 'abc@123.com',
+      password: '12345678',
       error: null
     }
   },
@@ -51,6 +48,9 @@ export default {
         this.error = error.response.data.error
       }
     }
+  },
+  components: {
+    Panel
   }
 }
 </script>
