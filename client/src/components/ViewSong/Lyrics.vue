@@ -1,21 +1,16 @@
 <template>
   <div class="container">
     <div class="row justify-content-left">
-      <Panel title="Lyrics">
+      <panel title="Lyrics">
         <textarea id="lyrics" v-model="lyrics" class="form-control" required readonly></textarea>
-      </Panel>
+      </panel>
     </div>
   </div>
 </template>
 
 <script>
-import Panel from '@/components/Panel'
-
 export default {
-  props: ['lyrics'],
-  components: {
-    Panel
-  }
+  props: ['lyrics']
 }
 </script>
 

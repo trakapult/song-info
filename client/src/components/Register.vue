@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <Panel title="Register">
+        <panel title="Register">
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input id="email" v-model="email" class="form-control" required>
@@ -13,9 +13,9 @@
           </div>
           <div class="error" v-html="error"></div>
           <div class="d-grid">
-            <button type="submit" class="btn btn-primary" @click="login">Register</button>
+            <button type="submit" class="btn btn-primary" @click="register">Register</button>
           </div>
-        </Panel>
+        </panel>
       </div>
     </div>
   </div>
@@ -23,7 +23,6 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel.vue'
 
 export default {
   data () {
@@ -43,14 +42,12 @@ export default {
         console.log(response.data)
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({name: 'songs'})
       } catch (error) {
         console.log(error)
         this.error = error.response.data.error
       }
     }
-  },
-  components: {
-    Panel
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-left">
       <div class="col-md-4">
-        <Panel title="Create Song">
+        <panel title="Create Song">
           <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input id="title" v-model="song.title" class="form-control" required>
@@ -27,10 +27,10 @@
             <label for="youtubeId" class="form-label">Youtube ID</label>
             <textarea id="youtubeId" v-model="song.youtubeId" class="form-control" required></textarea>
           </div>
-        </Panel>
+        </panel>
       </div>
       <div class="col-md-8">
-        <Panel title="Song Structure">
+        <panel title="Song Structure">
           <div class="mb-3">
             <label for="lyrics" class="form-label">Lyrics</label>
             <textarea id="lyrics" v-model="song.lyrics" class="form-control" required></textarea>
@@ -39,7 +39,7 @@
             <label for="tab" class="form-label">Tab</label>
             <textarea id="tab" v-model="song.tab" class="form-control" required></textarea>
           </div>
-        </Panel>
+        </panel>
         <div class="alert alert-danger" v-if="error" style="margin-top: 20px;">{{error}}</div>
         <div class="d-grid" style="margin-top: 20px;">
           <button type="submit" class="btn btn-primary" @click="create">Create Song</button>
@@ -51,12 +51,8 @@
 
 <script>
 import SongService from '@/services/SongService'
-import Panel from '@/components/Panel'
 
 export default {
-  components: {
-    Panel
-  },
   data () {
     return {
       song: {

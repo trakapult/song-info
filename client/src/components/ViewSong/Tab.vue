@@ -1,21 +1,16 @@
 <template>
   <div class="container">
     <div class="row justify-content-left">
-      <Panel title="Tab">
+      <panel title="Tab">
         <textarea id="tab" v-model="tab" class="form-control" required readonly></textarea>
-      </Panel>
+      </panel>
     </div>
   </div>
 </template>
 
 <script>
-import Panel from '@/components/Panel'
-
 export default {
-  props: ['tab'],
-  components: {
-    Panel
-  }
+  props: ['tab']
 }
 </script>
 

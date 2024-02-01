@@ -1,11 +1,30 @@
 const {Song} = require('../models')
+const {Op} = require('sequelize')
 
 module.exports = {
     async index (req, res) {
+        let song = null
+        const search = req.query.search
         try {
-            const song = await Song.findAll({ // await is necessary
-                limit: 10
-            })
+            if (search) {
+                console.log(search)
+                // find all where search is in the title column
+                song = await Song.findAll({ // await is necessary
+                    where: {
+                        [Op.or]: [
+                            'title', 'artist', 'genre', 'album'
+                        ].map(key => ({
+                            [key]: {
+                                [Op.like]: `%${search}%`
+                            }
+                        }))
+                    }
+                })
+            } else {
+                song = await Song.findAll({ // await is necessary
+                    limit: 10
+                })
+            }
             res.send(song)
         } catch (err) {
             res.status(500).send({

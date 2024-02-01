@@ -17,7 +17,7 @@
             <a class="nav-link" href="/#/songs">Songs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" v-if="$store.state.isUserLoggedIn" @click="logout">Logout</a>
+            <a class="nav-link" v-if="$store.state.isUserLoggedIn" @click="logout" href>Logout</a>
           </li>
         </ul>
       </div>

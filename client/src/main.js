@@ -7,8 +7,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { sync } from 'vuex-router-sync'
 import store from '@/store/store'
 import VueYouTubeEmbed from 'vue-youtube-embed'
+import Panel from '@/components/globals/Panel'
 
 Vue.use(VueYouTubeEmbed)
+Vue.component('panel', Panel) // 'panel', therefore should use <panel> instead of <Panel>
 
 Vue.config.productionTip = false
 
