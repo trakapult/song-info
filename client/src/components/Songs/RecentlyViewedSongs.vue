@@ -11,9 +11,9 @@
       </thead>
       <tbody>
         <tr v-for="(history, index) in histories" :key="index">
-          <td>{{ history.Song.title }}</td>
-          <td>{{ history.Song.artist }}</td>
-          <td>{{ history.Song.genre }}</td>
+          <td>{{ history.song.title }}</td>
+          <td>{{ history.song.artist }}</td>
+          <td>{{ history.song.genre }}</td>
         </tr>
       </tbody>
     </table>

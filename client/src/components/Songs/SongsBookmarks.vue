@@ -11,9 +11,9 @@
       </thead>
       <tbody>
         <tr v-for="(bookmark, index) in bookmarks" :key="index">
-          <td>{{ bookmark.Song.title }}</td>
-          <td>{{ bookmark.Song.artist }}</td>
-          <td>{{ bookmark.Song.genre }}</td>
+          <td>{{ bookmark.song.title }}</td>
+          <td>{{ bookmark.song.artist }}</td>
+          <td>{{ bookmark.song.genre }}</td>
         </tr>
       </tbody>
     </table>
